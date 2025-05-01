@@ -7,5 +7,20 @@
 <body>
     <h1>Hello from the frontend!</h1>
     <p>This is a static page deployed on Azure Static Web App.</p>
+
+    <h2>Backend response :</h2>
+    <div id="api-response">Chargement...</div>
+
+    <script>
+        fetch("https://fullstack-backend-gnf7g8chgfhte4cj.westeurope-01.azurewebsites.net")
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById("api-response").innerText = data;
+          })
+          .catch(error => {
+            document.getElementById("api-response").innerText = "Erreur de connexion au backend";
+            console.error(error);
+          });
+    </script>
 </body>
 </html>
